@@ -1,0 +1,106 @@
+/* FORM  */
+.reg-form {
+  padding: 30px 40px;
+  width: 33.3%;
+}
+
+.reg-label {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #e0e8ef;
+  margin-bottom: 8px;
+}
+
+.reg-input {
+  width: 100%;
+  background: transparent;
+  color: #e0e8efb8;
+  font-size: 0.8rem;
+  font-weight: 500;
+  outline: 2px solid #a2b7d3;
+  border-radius: 4px;
+  border: 0;
+  padding: 10px;
+  transition: all 0.2s;
+}
+
+.reg-input:focus {
+  outline: 3px dotted #e0e8ef;
+}
+
+.reg-input:-webkit-autofill,
+.reg-input:-webkit-autofill:hover,
+.reg-input:-webkit-autofill:focus,
+.reg-input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #e0e8ef;
+}
+
+.input-control.success input {
+  outline: 3px dotted #2ecc71;
+}
+
+.input-control.error input {
+  outline: 3px dotted #b02546;
+}
+
+.input-control {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-control i {
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  visibility: hidden;
+}
+
+.input-control.success i.fa-check-circle {
+  color: #2ecc71;
+  visibility: visible;
+}
+
+.input-control.pass-error i.fa-exclamation-circle {
+  color: #b02546;
+  visibility: visible;
+}
+
+.pass-error {
+  position: absolute;
+  color: #b02546;
+  visibility: visible;
+}
+
+.reg-button {
+  width: 100%;
+  filter: blur(.04px);
+  background-color: #4a3fad;
+  background-image: linear-gradient(135deg, #16b0fd, #f50bed);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.reg-button:hover {
+  opacity: 1;
+}
+
+.reg-button:disabled {
+  opacity: 0.3;
+}
+
+.upload-songs__btn {
+  position: relative;
+  height: 61px;
+}
