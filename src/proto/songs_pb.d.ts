@@ -58,6 +58,9 @@ export class UploadSongResponse extends jspb.Message {
   getSongId(): string;
   setSongId(value: string): UploadSongResponse;
 
+  getCoverId(): string;
+  setCoverId(value: string): UploadSongResponse;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UploadSongResponse.AsObject;
   static toObject(includeInstance: boolean, msg: UploadSongResponse): UploadSongResponse.AsObject;
@@ -71,66 +74,7 @@ export namespace UploadSongResponse {
     message: string,
     status: string,
     songId: string,
-  }
-}
-
-export class GetSongRequest extends jspb.Message {
-  getSongId(): string;
-  setSongId(value: string): GetSongRequest;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): GetSongRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: GetSongRequest): GetSongRequest.AsObject;
-  static serializeBinaryToWriter(message: GetSongRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): GetSongRequest;
-  static deserializeBinaryFromReader(message: GetSongRequest, reader: jspb.BinaryReader): GetSongRequest;
-}
-
-export namespace GetSongRequest {
-  export type AsObject = {
-    songId: string,
-  }
-}
-
-export class GetSongResponse extends jspb.Message {
-  getTitle(): string;
-  setTitle(value: string): GetSongResponse;
-
-  getArtist(): string;
-  setArtist(value: string): GetSongResponse;
-
-  getAlbum(): string;
-  setAlbum(value: string): GetSongResponse;
-
-  getDescription(): string;
-  setDescription(value: string): GetSongResponse;
-
-  getUploadedBy(): string;
-  setUploadedBy(value: string): GetSongResponse;
-
-  getSongFileId(): string;
-  setSongFileId(value: string): GetSongResponse;
-
-  getAlbumCoverId(): string;
-  setAlbumCoverId(value: string): GetSongResponse;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): GetSongResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: GetSongResponse): GetSongResponse.AsObject;
-  static serializeBinaryToWriter(message: GetSongResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): GetSongResponse;
-  static deserializeBinaryFromReader(message: GetSongResponse, reader: jspb.BinaryReader): GetSongResponse;
-}
-
-export namespace GetSongResponse {
-  export type AsObject = {
-    title: string,
-    artist: string,
-    album: string,
-    description: string,
-    uploadedBy: string,
-    songFileId: string,
-    albumCoverId: string,
+    coverId: string,
   }
 }
 
@@ -207,6 +151,228 @@ export class StreamAlbumCoverResponse extends jspb.Message {
 export namespace StreamAlbumCoverResponse {
   export type AsObject = {
     chunk: Uint8Array | string,
+  }
+}
+
+export class SongMetadata extends jspb.Message {
+  getId(): string;
+  setId(value: string): SongMetadata;
+
+  getTitle(): string;
+  setTitle(value: string): SongMetadata;
+
+  getArtist(): string;
+  setArtist(value: string): SongMetadata;
+
+  getAlbum(): string;
+  setAlbum(value: string): SongMetadata;
+
+  getDescription(): string;
+  setDescription(value: string): SongMetadata;
+
+  getUploadedby(): string;
+  setUploadedby(value: string): SongMetadata;
+
+  getSongfileid(): string;
+  setSongfileid(value: string): SongMetadata;
+
+  getAlbumcoverid(): string;
+  setAlbumcoverid(value: string): SongMetadata;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SongMetadata.AsObject;
+  static toObject(includeInstance: boolean, msg: SongMetadata): SongMetadata.AsObject;
+  static serializeBinaryToWriter(message: SongMetadata, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SongMetadata;
+  static deserializeBinaryFromReader(message: SongMetadata, reader: jspb.BinaryReader): SongMetadata;
+}
+
+export namespace SongMetadata {
+  export type AsObject = {
+    id: string,
+    title: string,
+    artist: string,
+    album: string,
+    description: string,
+    uploadedby: string,
+    songfileid: string,
+    albumcoverid: string,
+  }
+}
+
+export class GetUserSongsRequest extends jspb.Message {
+  getUserId(): string;
+  setUserId(value: string): GetUserSongsRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetUserSongsRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetUserSongsRequest): GetUserSongsRequest.AsObject;
+  static serializeBinaryToWriter(message: GetUserSongsRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetUserSongsRequest;
+  static deserializeBinaryFromReader(message: GetUserSongsRequest, reader: jspb.BinaryReader): GetUserSongsRequest;
+}
+
+export namespace GetUserSongsRequest {
+  export type AsObject = {
+    userId: string,
+  }
+}
+
+export class GetUserSongsResponse extends jspb.Message {
+  getSongsList(): Array<SongMetadata>;
+  setSongsList(value: Array<SongMetadata>): GetUserSongsResponse;
+  clearSongsList(): GetUserSongsResponse;
+  addSongs(value?: SongMetadata, index?: number): SongMetadata;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetUserSongsResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetUserSongsResponse): GetUserSongsResponse.AsObject;
+  static serializeBinaryToWriter(message: GetUserSongsResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetUserSongsResponse;
+  static deserializeBinaryFromReader(message: GetUserSongsResponse, reader: jspb.BinaryReader): GetUserSongsResponse;
+}
+
+export namespace GetUserSongsResponse {
+  export type AsObject = {
+    songsList: Array<SongMetadata.AsObject>,
+  }
+}
+
+export class GetAllSongsRequest extends jspb.Message {
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetAllSongsRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetAllSongsRequest): GetAllSongsRequest.AsObject;
+  static serializeBinaryToWriter(message: GetAllSongsRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetAllSongsRequest;
+  static deserializeBinaryFromReader(message: GetAllSongsRequest, reader: jspb.BinaryReader): GetAllSongsRequest;
+}
+
+export namespace GetAllSongsRequest {
+  export type AsObject = {
+  }
+}
+
+export class GetAllSongsResponse extends jspb.Message {
+  getSongsList(): Array<SongMetadata>;
+  setSongsList(value: Array<SongMetadata>): GetAllSongsResponse;
+  clearSongsList(): GetAllSongsResponse;
+  addSongs(value?: SongMetadata, index?: number): SongMetadata;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetAllSongsResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetAllSongsResponse): GetAllSongsResponse.AsObject;
+  static serializeBinaryToWriter(message: GetAllSongsResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetAllSongsResponse;
+  static deserializeBinaryFromReader(message: GetAllSongsResponse, reader: jspb.BinaryReader): GetAllSongsResponse;
+}
+
+export namespace GetAllSongsResponse {
+  export type AsObject = {
+    songsList: Array<SongMetadata.AsObject>,
+  }
+}
+
+export class UpdateSongMetadataRequest extends jspb.Message {
+  getSongId(): string;
+  setSongId(value: string): UpdateSongMetadataRequest;
+
+  getTitle(): string;
+  setTitle(value: string): UpdateSongMetadataRequest;
+
+  getArtist(): string;
+  setArtist(value: string): UpdateSongMetadataRequest;
+
+  getAlbum(): string;
+  setAlbum(value: string): UpdateSongMetadataRequest;
+
+  getDescription(): string;
+  setDescription(value: string): UpdateSongMetadataRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UpdateSongMetadataRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: UpdateSongMetadataRequest): UpdateSongMetadataRequest.AsObject;
+  static serializeBinaryToWriter(message: UpdateSongMetadataRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UpdateSongMetadataRequest;
+  static deserializeBinaryFromReader(message: UpdateSongMetadataRequest, reader: jspb.BinaryReader): UpdateSongMetadataRequest;
+}
+
+export namespace UpdateSongMetadataRequest {
+  export type AsObject = {
+    songId: string,
+    title: string,
+    artist: string,
+    album: string,
+    description: string,
+  }
+}
+
+export class UpdateSongMetadataResponse extends jspb.Message {
+  getMessage(): string;
+  setMessage(value: string): UpdateSongMetadataResponse;
+
+  getSuccess(): boolean;
+  setSuccess(value: boolean): UpdateSongMetadataResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UpdateSongMetadataResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: UpdateSongMetadataResponse): UpdateSongMetadataResponse.AsObject;
+  static serializeBinaryToWriter(message: UpdateSongMetadataResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UpdateSongMetadataResponse;
+  static deserializeBinaryFromReader(message: UpdateSongMetadataResponse, reader: jspb.BinaryReader): UpdateSongMetadataResponse;
+}
+
+export namespace UpdateSongMetadataResponse {
+  export type AsObject = {
+    message: string,
+    success: boolean,
+  }
+}
+
+export class DeleteSongRequest extends jspb.Message {
+  getSongId(): string;
+  setSongId(value: string): DeleteSongRequest;
+
+  getSongFileId(): string;
+  setSongFileId(value: string): DeleteSongRequest;
+
+  getAlbumCoverId(): string;
+  setAlbumCoverId(value: string): DeleteSongRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): DeleteSongRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: DeleteSongRequest): DeleteSongRequest.AsObject;
+  static serializeBinaryToWriter(message: DeleteSongRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): DeleteSongRequest;
+  static deserializeBinaryFromReader(message: DeleteSongRequest, reader: jspb.BinaryReader): DeleteSongRequest;
+}
+
+export namespace DeleteSongRequest {
+  export type AsObject = {
+    songId: string,
+    songFileId: string,
+    albumCoverId: string,
+  }
+}
+
+export class DeleteSongResponse extends jspb.Message {
+  getMessage(): string;
+  setMessage(value: string): DeleteSongResponse;
+
+  getSuccess(): boolean;
+  setSuccess(value: boolean): DeleteSongResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): DeleteSongResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: DeleteSongResponse): DeleteSongResponse.AsObject;
+  static serializeBinaryToWriter(message: DeleteSongResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): DeleteSongResponse;
+  static deserializeBinaryFromReader(message: DeleteSongResponse, reader: jspb.BinaryReader): DeleteSongResponse;
+}
+
+export namespace DeleteSongResponse {
+  export type AsObject = {
+    message: string,
+    success: boolean,
   }
 }
 

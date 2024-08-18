@@ -2,6 +2,8 @@ import React, { useCallback, useState } from "react";
 import "./styles.css";
 import { SongServiceClient } from "../proto/SongsServiceClientPb.ts";
 import { UploadSongRequest } from "../proto/songs_pb.js";
+import StreamSong from "../StreamSong/StreamSong";
+import AlbumCover from "../AlbumCover/AlbumCover";
 
 const client = new SongServiceClient("http://localhost:8083", null, null);
 
@@ -12,6 +14,8 @@ const UploadSong = () => {
   const [artist, setArtist] = useState("");
   const [album, setAlbum] = useState("");
   const [description, setDescription] = useState("");
+  const [songId, setSongId] = useState("");
+  const [albumCoverId, setAlbumCoverId] = useState("");
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -39,16 +43,18 @@ const UploadSong = () => {
       request.setUploadedBy("1");
       request.setSongFile(songFileBuffer);
       request.setAlbumCover(albumCoverBase64);
-      console.log(request);
       client.uploadSong(request, {}, (err, response) => {
         console.log(response);
-
         if (err) {
           console.error("Upload failed:", err);
           alert("Upload failed");
           return;
         }
         alert("Upload successful");
+        setSongId(response.getSongId());
+        console.log(songId);
+        setAlbumCoverId(response.getCoverId());
+        console.log(albumCoverId);
       });
     },
     [songFile, albumCover, title, artist, album, description]
@@ -169,6 +175,8 @@ const UploadSong = () => {
           </button>
         </div>
       </form>
+      <StreamSong songFileId={songId} />
+      {songId && <AlbumCover albumCoverId={albumCoverId} />}
     </div>
   );
 };

@@ -82,49 +82,6 @@ export class SongServiceClient {
     this.methodDescriptorUploadSong);
   }
 
-  methodDescriptorGetSong = new grpcWeb.MethodDescriptor(
-    '/main.SongService/GetSong',
-    grpcWeb.MethodType.UNARY,
-    songs_pb.GetSongRequest,
-    songs_pb.GetSongResponse,
-    (request: songs_pb.GetSongRequest) => {
-      return request.serializeBinary();
-    },
-    songs_pb.GetSongResponse.deserializeBinary
-  );
-
-  getSong(
-    request: songs_pb.GetSongRequest,
-    metadata?: grpcWeb.Metadata | null): Promise<songs_pb.GetSongResponse>;
-
-  getSong(
-    request: songs_pb.GetSongRequest,
-    metadata: grpcWeb.Metadata | null,
-    callback: (err: grpcWeb.RpcError,
-               response: songs_pb.GetSongResponse) => void): grpcWeb.ClientReadableStream<songs_pb.GetSongResponse>;
-
-  getSong(
-    request: songs_pb.GetSongRequest,
-    metadata?: grpcWeb.Metadata | null,
-    callback?: (err: grpcWeb.RpcError,
-               response: songs_pb.GetSongResponse) => void) {
-    if (callback !== undefined) {
-      return this.client_.rpcCall(
-        this.hostname_ +
-          '/main.SongService/GetSong',
-        request,
-        metadata || {},
-        this.methodDescriptorGetSong,
-        callback);
-    }
-    return this.client_.unaryCall(
-    this.hostname_ +
-      '/main.SongService/GetSong',
-    request,
-    metadata || {},
-    this.methodDescriptorGetSong);
-  }
-
   methodDescriptorStreamSongFile = new grpcWeb.MethodDescriptor(
     '/main.SongService/StreamSongFile',
     grpcWeb.MethodType.SERVER_STREAMING,
@@ -167,6 +124,178 @@ export class SongServiceClient {
       request,
       metadata || {},
       this.methodDescriptorStreamAlbumCover);
+  }
+
+  methodDescriptorGetUserSongs = new grpcWeb.MethodDescriptor(
+    '/main.SongService/GetUserSongs',
+    grpcWeb.MethodType.UNARY,
+    songs_pb.GetUserSongsRequest,
+    songs_pb.GetUserSongsResponse,
+    (request: songs_pb.GetUserSongsRequest) => {
+      return request.serializeBinary();
+    },
+    songs_pb.GetUserSongsResponse.deserializeBinary
+  );
+
+  getUserSongs(
+    request: songs_pb.GetUserSongsRequest,
+    metadata?: grpcWeb.Metadata | null): Promise<songs_pb.GetUserSongsResponse>;
+
+  getUserSongs(
+    request: songs_pb.GetUserSongsRequest,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.RpcError,
+               response: songs_pb.GetUserSongsResponse) => void): grpcWeb.ClientReadableStream<songs_pb.GetUserSongsResponse>;
+
+  getUserSongs(
+    request: songs_pb.GetUserSongsRequest,
+    metadata?: grpcWeb.Metadata | null,
+    callback?: (err: grpcWeb.RpcError,
+               response: songs_pb.GetUserSongsResponse) => void) {
+    if (callback !== undefined) {
+      return this.client_.rpcCall(
+        this.hostname_ +
+          '/main.SongService/GetUserSongs',
+        request,
+        metadata || {},
+        this.methodDescriptorGetUserSongs,
+        callback);
+    }
+    return this.client_.unaryCall(
+    this.hostname_ +
+      '/main.SongService/GetUserSongs',
+    request,
+    metadata || {},
+    this.methodDescriptorGetUserSongs);
+  }
+
+  methodDescriptorGetAllSongs = new grpcWeb.MethodDescriptor(
+    '/main.SongService/GetAllSongs',
+    grpcWeb.MethodType.UNARY,
+    songs_pb.GetAllSongsRequest,
+    songs_pb.GetAllSongsResponse,
+    (request: songs_pb.GetAllSongsRequest) => {
+      return request.serializeBinary();
+    },
+    songs_pb.GetAllSongsResponse.deserializeBinary
+  );
+
+  getAllSongs(
+    request: songs_pb.GetAllSongsRequest,
+    metadata?: grpcWeb.Metadata | null): Promise<songs_pb.GetAllSongsResponse>;
+
+  getAllSongs(
+    request: songs_pb.GetAllSongsRequest,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.RpcError,
+               response: songs_pb.GetAllSongsResponse) => void): grpcWeb.ClientReadableStream<songs_pb.GetAllSongsResponse>;
+
+  getAllSongs(
+    request: songs_pb.GetAllSongsRequest,
+    metadata?: grpcWeb.Metadata | null,
+    callback?: (err: grpcWeb.RpcError,
+               response: songs_pb.GetAllSongsResponse) => void) {
+    if (callback !== undefined) {
+      return this.client_.rpcCall(
+        this.hostname_ +
+          '/main.SongService/GetAllSongs',
+        request,
+        metadata || {},
+        this.methodDescriptorGetAllSongs,
+        callback);
+    }
+    return this.client_.unaryCall(
+    this.hostname_ +
+      '/main.SongService/GetAllSongs',
+    request,
+    metadata || {},
+    this.methodDescriptorGetAllSongs);
+  }
+
+  methodDescriptorUpdateSongMetadata = new grpcWeb.MethodDescriptor(
+    '/main.SongService/UpdateSongMetadata',
+    grpcWeb.MethodType.UNARY,
+    songs_pb.UpdateSongMetadataRequest,
+    songs_pb.UpdateSongMetadataResponse,
+    (request: songs_pb.UpdateSongMetadataRequest) => {
+      return request.serializeBinary();
+    },
+    songs_pb.UpdateSongMetadataResponse.deserializeBinary
+  );
+
+  updateSongMetadata(
+    request: songs_pb.UpdateSongMetadataRequest,
+    metadata?: grpcWeb.Metadata | null): Promise<songs_pb.UpdateSongMetadataResponse>;
+
+  updateSongMetadata(
+    request: songs_pb.UpdateSongMetadataRequest,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.RpcError,
+               response: songs_pb.UpdateSongMetadataResponse) => void): grpcWeb.ClientReadableStream<songs_pb.UpdateSongMetadataResponse>;
+
+  updateSongMetadata(
+    request: songs_pb.UpdateSongMetadataRequest,
+    metadata?: grpcWeb.Metadata | null,
+    callback?: (err: grpcWeb.RpcError,
+               response: songs_pb.UpdateSongMetadataResponse) => void) {
+    if (callback !== undefined) {
+      return this.client_.rpcCall(
+        this.hostname_ +
+          '/main.SongService/UpdateSongMetadata',
+        request,
+        metadata || {},
+        this.methodDescriptorUpdateSongMetadata,
+        callback);
+    }
+    return this.client_.unaryCall(
+    this.hostname_ +
+      '/main.SongService/UpdateSongMetadata',
+    request,
+    metadata || {},
+    this.methodDescriptorUpdateSongMetadata);
+  }
+
+  methodDescriptorDeleteSong = new grpcWeb.MethodDescriptor(
+    '/main.SongService/DeleteSong',
+    grpcWeb.MethodType.UNARY,
+    songs_pb.DeleteSongRequest,
+    songs_pb.DeleteSongResponse,
+    (request: songs_pb.DeleteSongRequest) => {
+      return request.serializeBinary();
+    },
+    songs_pb.DeleteSongResponse.deserializeBinary
+  );
+
+  deleteSong(
+    request: songs_pb.DeleteSongRequest,
+    metadata?: grpcWeb.Metadata | null): Promise<songs_pb.DeleteSongResponse>;
+
+  deleteSong(
+    request: songs_pb.DeleteSongRequest,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.RpcError,
+               response: songs_pb.DeleteSongResponse) => void): grpcWeb.ClientReadableStream<songs_pb.DeleteSongResponse>;
+
+  deleteSong(
+    request: songs_pb.DeleteSongRequest,
+    metadata?: grpcWeb.Metadata | null,
+    callback?: (err: grpcWeb.RpcError,
+               response: songs_pb.DeleteSongResponse) => void) {
+    if (callback !== undefined) {
+      return this.client_.rpcCall(
+        this.hostname_ +
+          '/main.SongService/DeleteSong',
+        request,
+        metadata || {},
+        this.methodDescriptorDeleteSong,
+        callback);
+    }
+    return this.client_.unaryCall(
+    this.hostname_ +
+      '/main.SongService/DeleteSong',
+    request,
+    metadata || {},
+    this.methodDescriptorDeleteSong);
   }
 
 }
